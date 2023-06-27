@@ -29,3 +29,28 @@ def insert(request):
     else:
        form = MyRegisterform()
     return render(request,'register.html',{'form':form})    
+
+
+def update(request,id):
+    data =Registerform.objects.get(id=id)
+    
+    if request.method=='POST':
+        name=request.POST['name']
+        age=request.POST['age']
+        address=request.POST['address']
+        contact=request.POST['contact']
+        email=request.POST['email']
+        
+        data.name=name
+        data.age=age
+        data.address=address
+        data.contact=contact
+        data.email=email
+        data.save()
+        messages.success(request,"update successfully completed")
+        
+        # sometime quotation matters a lot '' or "" if we using single quotation somewhere then used similar to everywhere otherwise same code work twice
+        # messages.success(request,'update successfully completed')
+        return redirect('Home')
+    return render(request,"update.html",{'data':data})
+

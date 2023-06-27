@@ -2,7 +2,15 @@
 
 {% block content %}
 
-
+<style>
+    th{
+        text-align: center;
+    }
+    
+    .center{
+        text-align: center;
+    }
+</style>
 
 
 <div class="container-fluid" style="margin-top:50px;">
@@ -38,6 +46,7 @@
                     <th>Address</th>
                     <th>Contact</th>
                     <th>Email</th>
+                    <th>Update</th>
                 </tr>
              </thead>  
              
@@ -51,6 +60,7 @@
                     <td>{{mydata.address}}</td>
                     <td>{{mydata.contact}}</td>
                     <td>{{mydata.email}}</td>
+                    <td class="center"><a href="update/{{mydata.id}}" class="btn btn-primary">Update</a></td>
                 </tr>
              </tbody>
              
