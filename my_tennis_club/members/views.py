@@ -1,9 +1,13 @@
+from urllib import request
 from django.shortcuts import redirect, render
 from .forms import MyRegisterform
 from django.contrib import messages
 from .models import Registerform
 # Create your views here.
 
+
+def temp(request):
+    return render(request,'tem.html')
 
 def home(request):
     data = Registerform.objects.all()
