@@ -1,3 +1,4 @@
+from email import message
 from urllib import request
 from django.shortcuts import redirect, render
 from .forms import MyRegisterform
@@ -54,3 +55,8 @@ def update(request,id):
         return redirect('Home')
     return render(request,"update.html",{'data':data})
 
+def delete(request,cl):
+    data=Registerform.objects.get(id=cl)
+    data.delete()
+    messages.error(request,"delete successfully completed")
+    return redirect('Home') 
